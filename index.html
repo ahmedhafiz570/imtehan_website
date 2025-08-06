@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল-ইমতেহান ছাত্র কল্যাণ পরিষদ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5d1a;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d4210 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: #c19b2c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Activities Section */
+        .activities {
+            background-color: #f0f7f0;
+        }
+        
+        .activity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .card-content p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Committee Section */
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .committee-table th,
+        .committee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .committee-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .committee-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .committee-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .committee-table tr:hover {
+            background-color: #f1f7f1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d4210 100%);
+            color: white;
+        }
+        
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-book-quran"></i>
+                </div>
+                <div class="logo-text">
+                    আল-ইমতেহান <span>ছাত্র কল্যাণ পরিষদ</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">হোম</a></li>
+                    <li><a href="#">আমাদের সম্পর্কে</a></li>
+                    <li><a href="#">কার্যক্রম</a></li>
+                    <li><a href="#">কমিটি</a></li>
+                    <li><a href="#">যোগাযোগ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>শিক্ষা, সেবা ও সংস্কৃতির পথিকৃৎ</h1>
+            <p>২০১৩ সাল থেকে ফেঞ্চুগঞ্জ মোহাম্মদিয়া হিফজুল কুরআন মাদরাসার সাবেক শিক্ষার্থীদের নিয়ে গঠিত সংগঠন। আমরা দরিদ্র মেধাবী শিক্ষার্থীদের শিক্ষাবৃত্তি প্রদান, সামাজিক সেবা ও সাংস্কৃতিক কার্যক্রম পরিচালনা করে থাকি।</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">আমাদের কার্যক্রম</a>
+                <a href="#" class="btn btn-outline">যোগাযোগ করুন</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমাদের ইতিহাস</h2>
+                <p>আল-ইমতেহান ছাত্র কল্যাণ পরিষদ ২০১৩ সালের ১৯শে সেপ্টেম্বর প্রতিষ্ঠিত হয়</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>আমাদের গল্প</h3>
+                    <p>২০১৩ সালের এক সোনালী প্রভাতে শুরু হয় আল-ইমতেহান ছাত্র কল্যাণ পরিষদের দুর্বার পদযাত্রা। ইসলামি ভাবধারায় পরিচালিত ও আর্তমানবতার সেবা ধর্মী, শিক্ষাবান্ধব ও সামাজিক এই সংগঠনটি প্রতিষ্ঠা করেন ফেঞ্চুগঞ্জ মোহাম্মদিয়া হিফজুল কুরআন মাদরাসার প্রধান শিক্ষক হাফিজ মাওলানা আবু সাঈদ মোঃ সেলিম সাহেব।</p>
+                    <p>আমাদের লক্ষ্য হলো আহলে সুন্নাত ওয়াল জামায়াতের আকিদা অনুযায়ী পরিচালিত হয়ে ইসলামি আদর্শে জীবন গঠনের মাধ্যমে আল্লাহ ও তাঁর রাসূল (সাঃ)-এর সন্তুষ্টি অর্জন করে ইহকালীন কল্যাণ ও পরকালীন মুক্তি লাভ করা।</p>
+                    <p>আমরা শিক্ষার্থীদের যাবতীয় সমস্যা দূরীকরণ ও সার্বিক কল্যাণে প্রত্যক্ষ ও পরোক্ষভাবে সহযোগিতা করি এবং একটি সুন্দর ও সোনালী সমাজ বিনির্মাণে একাগ্রতার সাথে কাজ করি।</p>
+                    <a href="#" class="btn">আরও জানুন</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="আল-ইমতেহান ছাত্র কল্যাণ পরিষদ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমাদের কার্যক্রম</h2>
+                <p>শিক্ষা ও সামাজিক উন্নয়নে আমাদের বিভিন্ন কার্যক্রম</p>
+            </div>
+            <div class="activity-cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>শিক্ষাবৃত্তি প্রদান</h3>
+                        <p>স্কুল ও মাদরাসার অসহায় ও দারিদ্র্য মেধাবী শিক্ষার্থীদের মধ্যে শিক্ষাবৃত্তি প্রদান করা হয়। হিফজের অসহায় ও দরিদ্র মেধাবী শিক্ষার্থীদের জন্য বিশেষ বৃত্তির ব্যবস্থা রয়েছে।</p>
+                        <a href="#" class="btn">আরও জানুন</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>মেধা বিকাশ কার্যক্রম</h3>
+                        <p>শিক্ষার্থীদের পড়াশোনার মান উন্নয়নে মেধাবৃত্তি পরীক্ষার আয়োজন করা হয়। হিফজের শিক্ষার্থীদের জন্য বিশেষ মেধাবৃত্তি (হিফজুল কুরআন) প্রতিযোগিতার আয়োজন করা হয়।</p>
+                        <a href="#" class="btn">আরও জানুন</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>সামাজিক সেবা</h3>
+                        <p>যেকোনো প্রাকৃতিক দুর্যোগে সমাজের ক্ষতিগ্রস্ত মানুষের পাশে দাড়ানো। সমাজের অধিকার বঞ্চিত ও অসহায় মানুষের বিভিন্ন সমস্যায় সার্বিক সহায়তা প্রদান করা।</p>
+                        <a href="#" class="btn">আরও জানুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section class="committee">
+        <div class="container">
+            <div class="section-title">
+                <h2>কার্যকরী পরিষদ (২০২২-২৩)</h2>
+                <p>আল-ইমতেহান ছাত্র কল্যাণ পরিষদের বর্তমান কমিটি</p>
+            </div>
+            <table class="committee-table">
+                <thead>
+                    <tr>
+                        <th>পদবী</th>
+                        <th>নাম</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>প্রতিষ্ঠাতা</strong></td>
+                        <td>হাফিজ মাওলানা আবু সাঈদ মো. সেলিম</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সভাপতি</strong></td>
+                        <td>হাফিজ মো. হাফিজুর রহমান</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সহ-সভাপতি</strong></td>
+                        <td>হাফিজ মো. ওয়াহিদুর রহমান</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সহ-সভাপতি</strong></td>
+                        <td>হাফিজ হোসাইন আহমদ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সাধারণ সম্পাদক</strong></td>
+                        <td>হাফিজ ওমর ফারুক</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সহ-সাধারণ সম্পাদক</strong></td>
+                        <td>হাফিজ মাহমুদুল আলম আবিদ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>সাংগঠনিক সম্পাদক</strong></td>
+                        <td>হাফিজ সৈয়দ মোস্তফা জামান রাফি</td>
+                    </tr>
+                    <tr>
+                        <td><strong>অর্থ সম্পাদক</strong></td>
+                        <td>হাফিজ শাহেদ আহমদ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>তথ্য ও প্রযুক্তি সম্পাদক</strong></td>
+                        <td>হাফিজ হারুনুর রশিদ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>শিক্ষা ও সংস্কৃতি সম্পাদক</strong></td>
+                        <td>আব্দুর রহমান</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">যোগাযোগ করুন</h2>
+                <p style="color: #e0e0e0;">আমাদের সাথে যোগাযোগ করতে নিচের ফর্ম ব্যবহার করুন</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>আমাদের সাথে যোগাযোগ</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>ঠিকানা</h4>
+                            <p>ফেঞ্চুগঞ্জ মোহাম্মদিয়া হিফজুল কুরআন মাদরাসা,<br>ফেঞ্চুগঞ্জ, সিলেট</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>ফোন</h4>
+                            <p>+880 1234 567890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>ইমেইল</h4>
+                            <p>info@alimtehan.org</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">আপনার নাম</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ইমেইল ঠিকানা</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">বিষয়</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">বার্তা</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">বার্তা পাঠান</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>আল-ইমতেহান ছাত্র কল্যাণ পরিষদ</h3>
+                    <p>২০১৩ সাল থেকে শিক্ষা, সেবা ও সংস্কৃতির মাধ্যমে সমাজ উন্নয়নে কাজ করে যাচ্ছে। আমাদের লক্ষ্য একটি সুন্দর ও সোনালী সমাজ বিনির্মাণ করা।</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>গুরুত্বপূর্ণ লিংক</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">হোম</a></li>
+                        <li><a href="#">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#">কার্যক্রম</a></li>
+                        <li><a href="#">কমিটি</a></li>
+                        <li><a href="#">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>আমাদের কার্যক্রম</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">শিক্ষাবৃত্তি</a></li>
+                        <li><a href="#">মেধাবৃত্তি পরীক্ষা</a></li>
+                        <li><a href="#">হিফজ প্রতিযোগিতা</a></li>
+                        <li><a href="#">রক্তদান কর্মসূচি</a></li>
+                        <li><a href="#">বৃক্ষরোপণ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>সহযোগী সংগঠন</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">আল-ইমতেহান প্রবাসী ফোরাম</a></li>
+                        <li><a href="#">আল-ইমতেহান ব্লাড গ্রুপ</a></li>
+                        <li><a href="#">আল-ইমতেহান শিল্পীগোষ্ঠী</a></li>
+                        <li><a href="#">আল-ইমতেহান সাহিত্য পরিষদ</a></li>
+                        <li><a href="#">আল-ইমতেহান দারিদ্র্য তহবিল</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; ২০২৩ আল-ইমতেহান ছাত্র কল্যাণ পরিষদ। সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
